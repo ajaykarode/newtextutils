@@ -137,7 +137,7 @@ export default function TextForm(props) {
             <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor : props.mode==='dark'?'#323232':'rgb(220,220,220)',color: props.mode==='dark'?'white':'black'}} id="MyBox" rows="8"></textarea>
             </div>
             {/* <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={readTxt}>upload</button> */}
-            <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert To Upper</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert To UpperCase</button>
             <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleloClick}>Convert To LowerCase</button>
             <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleTitleClick}>Title Case</button>
             {/* <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handlefontClick}>Italic Case</button> */}
