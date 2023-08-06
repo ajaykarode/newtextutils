@@ -2,38 +2,24 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const handleUpClick = () => {
-    // console.log("Uppercase was clicked - " + text);
     let newText = text.toUpperCase();
     setText(newText);
     props.showAlert("Converted To Upper Case", "success");
   };
   const handleloClick = () => {
-    // console.log("Uppercase was clicked - " + text);
     let newText = text.toLowerCase();
     setText(newText);
     props.showAlert("Converted To Lower Case", "success");
   };
   const handleClearClick = () => {
-    // console.log("Uppercase was clicked - " + text);
     let newText = " ";
     setText(newText);
     props.showAlert("Cleared Successfully", "success");
   };
 
-  // const handleLightClick = () => {
-  //     const dark = document.querySelector('body')
-  //     dark.style.backgroundColor = "white";
-  // }
-  // const handleDarkClick = () => {
-  //     // console.log("Uppercase was clicked - " + text);
-  //     const light = document.querySelector('body')
-  //     // console.log(light);
-  //     light.style.backgroundColor = "black";
-  //     light.style.color = "white";
-  // }
+ 
 
   const handleTitleClick = () => {
-    // console.log("Uppercase was clicked - " + text);
     let newText = text.split(" ").map((currentValue) => {
       let newText = currentValue[0].toUpperCase() + currentValue.slice(1);
       return newText;
@@ -43,10 +29,8 @@ export default function TextForm(props) {
     props.showAlert("Converted To Title Case", "success");
   };
   const handlecopy = () => {
-    // console.log("i am copy");
     var text = document.getElementById("MyBox");
     text.select();
-    // text.setSelectionRange(0,99999);
     navigator.clipboard.writeText(text.value);
     document.getSelection().removeAllRanges();
     props.showAlert("Copied To Clipboard", "success");
@@ -64,7 +48,7 @@ export default function TextForm(props) {
     const regex = /[0-9/ /]/g;
 
     const digits = text.match(regex);
-    const res = digits.join("");
+    const res = digits.join(" ");
     setText(res);
     props.showAlert("Numbers Extracted from Text", "success");
   };
@@ -103,6 +87,7 @@ export default function TextForm(props) {
       }
     }
   }
+
   // The action of this function is to speak text what ever you written
   const handleTextToSpeech = () => {
     var msg = new SpeechSynthesisUtterance();
@@ -111,10 +96,10 @@ export default function TextForm(props) {
   };
 
   const handleOnChange = (event) => {
-    // console.log("Handle OnChange");
     setText(event.target.value);
   };
-  const [text, setText] = useState("Enter Text Here..");
+  const [text, setText] = useState("");
+
   return (
     <>
       <div
@@ -130,92 +115,89 @@ export default function TextForm(props) {
             style={{
               backgroundColor:
                 props.mode === "dark" ? "#323232" : "rgb(220,220,220)",
-              color: props.mode === "dark" ? "white" : "black",
+              color: props.mode === "dark" ? "white" : "black" 
             }}
             id="MyBox"
             rows="8"
           ></textarea>
         </div>
-        {/* <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={readTxt}>upload</button> */}
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2 my-2"
+          className={`${props.mode==="light" ? "btn btn-primary mx-2 my-2" : "btn btn-outline-primary mx-2 my-2"}`}
           onClick={handleUpClick}
         >
           Convert To UpperCase
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2 my-2"
+          className={`${props.mode==="light" ? "btn btn-primary mx-2 my-2" : "btn btn-outline-primary mx-2 my-2"}`}
           onClick={handleloClick}
         >
           Convert To LowerCase
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2 my-2"
+          className={`${props.mode==="light" ? "btn btn-primary mx-2 my-2" : "btn btn-outline-primary mx-2 my-2"}`}
           onClick={handleTitleClick}
         >
           Title Case
         </button>
-        {/* <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handlefontClick}>Italic Case</button> */}
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2 my-3"
+          className={`${props.mode==="light" ? "btn btn-primary mx-2 my-2" : "btn btn-outline-primary mx-2 my-2"}`}
           onClick={handleExtraSpace}
         >
           Remove Extra Spaces
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2 my-2"
+          className={`${props.mode==="light" ? "btn btn-primary mx-2 my-2" : "btn btn-outline-primary mx-2 my-2"}`}
           onClick={capitalizeSelectedText}
         >
           Capitalize Selected Text
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2 my-3"
+          className={`${props.mode==="light" ? "btn btn-primary mx-2 my-2" : "btn btn-outline-primary mx-2 my-2"}`}
           onClick={handleReverse}
         >
           Reverse Text
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2 my-2"
+          className={`${props.mode==="light" ? "btn btn-primary mx-2 my-2" : "btn btn-outline-primary mx-2 my-2"}`}
           onClick={handleNumExtract}
         >
           Extract Numbers
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2 my-2"
+          className={`${props.mode==="light" ? "btn btn-primary mx-2 my-2" : "btn btn-outline-primary mx-2 my-2"}`}
           onClick={handletextExtract}
         >
           Extract Symbols
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2 my-2"
+          className={`${props.mode==="light" ? "btn btn-primary mx-2 my-2" : "btn btn-outline-primary mx-2 my-2"}`}
           onClick={handleTextToSpeech}
         >
           Text To Speech
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2 my-2"
+          className={`${props.mode==="light" ? "btn btn-primary mx-2 my-2" : "btn btn-outline-primary mx-2 my-2"}`}
           onClick={handlecopy}
         >
           Copy Text
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2 my-2"
+          className={`${props.mode==="light" ? "btn btn-primary mx-2 my-2" : "btn btn-outline-primary mx-2 my-2"}`}
           onClick={handleClearClick}
         >
           Clear Text
         </button>
-        {/* <button className="btn btn-primary mx-2" onClick={handleItalicClick}>Conver To Italic </button> */}
       </div>
 
       <div

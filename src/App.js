@@ -10,7 +10,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   const [mode, setmode] = useState("light"); //it tells whether dark mode is enabled or not
   const [alert, setalert] = useState(null);
-  // const [btntxt ,setbtntxt] = useState("Enable DarkMode");
+
+  
   const showAlert = (message, type) => {
     setalert({
       msg: message,
@@ -20,26 +21,18 @@ function App() {
       setalert(null);
     }, 1000);
   };
+
+
   const toggleMode = () => {
     if (mode === "light") {
       setmode("dark");
-       document.body.style.backgroundColor = "black";
+      document.body.style.backgroundColor = "black";
       showAlert("Dark Mode Enabled", "success");
 
-      // document.title = 'Textutils - Dark Mode'
-      // setInterval(() => {
-      //   document.title = 'Textutils is Virus Free and Amazing'
-
-      // }, 1000);
-      // setInterval(() => {
-      //   document.title = 'Install Textutils Now'
-
-      // }, 1500);
     } else {
       setmode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light Mode Enabled", "success");
-      // document.title = 'Textutils - Light Mode'
     }
   };
 
