@@ -52,7 +52,7 @@ export default function TextForm(props) {
     setText(res);
     props.showAlert("Numbers Extracted from Text", "success");
   };
-
+ 
   //remove all the symbols
   const handletextExtract = () => {
     const regex = /[0-9/A-Z/a-z/ /]/g;

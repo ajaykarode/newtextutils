@@ -21,7 +21,7 @@ return (
             </h2>
             <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div className="accordion-body" style={myStyle}>
-                TextUtils gives you a way to analyze your text quickly and efficiently, be it word count, character count everything can be done easily in one click.
+                Edit Ease gives you a way to analyze your text quickly and efficiently, be it word count, character count everything can be done easily in one click.
             </div>
             </div>
         </div>
@@ -34,7 +34,7 @@ return (
             </h2>
             <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div className="accordion-body" style={myStyle}>
-                    Textutils is a free character counter tool that provides instant character count & word count statistics for a given text. Textutils reports the number of words and characters. thus it is suitable for writing text with word/character limit. 
+                    Edit Ease is a free character counter tool that provides instant character count & word count statistics for a given text. Edit Ease reports the number of words and characters. thus it is suitable for writing text with word/character limit. 
                 </div>
             </div>
         </div>
